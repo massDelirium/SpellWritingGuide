@@ -34,12 +34,14 @@ def generate_unique_combinations(L):
         non_repeating[i] = [int(s) for s in list(non_repeating[i])]
     return(non_repeating)
 
-def genbin(n, bs = ''):
+
+def genbin(n, bs= ''):
     if n-1:
         genbin(n-1, bs + '0')
         genbin(n-1, bs + '1')
     else:
         print('1' + bs)
+
 
 def generate_binary_strings(bit_count):
     binary_strings = []
@@ -55,9 +57,9 @@ def generate_binary_strings(bit_count):
     return binary_strings
 
 #-------Functions for drawing runes
-def decode_shape(in_array,k=1,point_color = 'k',color = 'k',
-                 label = None,base_fn = bases.polygon,base_kwargs = [],
-                 shape_fn = line_shapes.straight,shape_kwargs = [],
+def decode_shape(in_array, k=1, point_color = 'k', color = 'k',
+                 label = None, base_fn = bases.polygon, base_kwargs = [],
+                 shape_fn = line_shapes.straight, shape_kwargs = [],
                  plot_base = False):
     #decodes a single array into a given base, use plot_base = True if you are plotting it on its own
     n = len(in_array)
@@ -80,9 +82,9 @@ def decode_shape(in_array,k=1,point_color = 'k',color = 'k',
     
 
 def draw_multiple_inputs(in_array,
-                         base_fn = bases.polygon,base_kwargs = [],
-                         shape_fn = line_shapes.straight,shape_kwargs = [],
-                         point_color = 'k',labels = [],legend = False,colors = [],
+                         base_fn = bases.polygon, base_kwargs = [],
+                         shape_fn = line_shapes.straight, shape_kwargs = [],
+                         point_color = 'k', labels = [], legend = False, colors = [],
                          legend_loc = "upper left"):
     
     #draws multiple inputs on a single base
@@ -112,10 +114,10 @@ def load_attribute(fname):
     return(data)
 
 
-def draw_spell(level,rang,area,dtype,school,title = None,savename = "output.png",legend = False,
-                base_fn = bases.polygon,base_kwargs = [],
-                shape_fn = line_shapes.straight,shape_kwargs = [],
-                colors = [],legend_loc = "upper left",breakdown = False):
+def draw_spell(level, rang, area, dtype, school, title = None, savename = "output.png", legend = False,
+               base_fn = bases.polygon, base_kwargs = [],
+               shape_fn = line_shapes.straight, shape_kwargs = [],
+               colors = [], legend_loc = "upper left", breakdown = False):
     
     #draws a spell given certain values by comparing it to input txt
     ranges = load_attribute("Attributes/range.txt")
@@ -146,7 +148,7 @@ def draw_spell(level,rang,area,dtype,school,title = None,savename = "output.png"
     else:
         non_repeating = generate_unique_combinations(N)
         non_repeating = np.array(non_repeating)
-        np.save(f"Uniques/{N}.npy",non_repeating)
+        np.save(f"Uniques/{N}.npy", non_repeating)
     input_array = np.array([non_repeating[i] for i in attributes])#note +1 s.t. 0th option is always open for empty input
     draw_multiple_inputs(input_array,labels = labels,legend = legend,
                          base_fn = base_fn,base_kwargs = base_kwargs,
@@ -215,17 +217,17 @@ if __name__ == "__main__":
             level = "3"
         else:
             level = args.level
-        
+
         if not args.range:
             rang = "point (150 feet)"
         else:
             rang = args.range
-        
+
         if not args.area:
             area = "sphere"
         else:
             area = args.area
-        
+
         if not args.dtype:
             dtype = "fire"
         else:
@@ -236,15 +238,14 @@ if __name__ == "__main__":
         else:
             school = args.school
 
-        draw_spell(level,rang,area,dtype,school,title = title,legend = legend,
-                base_fn = bases.polygon,shape_fn = line_shapes.straight,
-                breakdown = breakdown,savename = savename)
+        draw_spell(level, rang, area, dtype, school, title = title, legend = legend,
+                   base_fn = bases.polygon, shape_fn = line_shapes.straight,
+                   breakdown = breakdown, savename = savename)
         plt.clf()
         input_shape = np.array([0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 1])
-        decode_shape(input_shape,k=3,point_color = 'k',color = 'k',
-                 label = None,base_fn = bases.polygon,base_kwargs = [],
-                 shape_fn = line_shapes.straight,shape_kwargs = [],
-                 plot_base = True)
+        decode_shape(input_shape, k=3, point_color = 'k', color = 'k',
+                     label = None, base_fn = bases.polygon, base_kwargs = [],
+                     shape_fn = line_shapes.straight, shape_kwargs = [],
+                     plot_base = True)
         plt.axis('off')
         plt.savefig("test.png")
-    
