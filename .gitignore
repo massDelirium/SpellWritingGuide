@@ -1,6 +1,9 @@
 Uniques/
-*.png
+Spells/
 __pycache__/
+*.png
 *.pyc
 *.wav
-Spell.png
+
+
+
