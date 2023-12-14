@@ -4,6 +4,5 @@ __pycache__/
 *.png
 *.pyc
 *.wav
-
-
-
+.idea/inspectionProfiles/profiles_settings.xml
+.idea/misc.xml

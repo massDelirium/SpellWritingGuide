@@ -1,15 +1,20 @@
-# SpellWritingGuide
+# Hello!
+You have found MassDelirium's fork of Gorrilla_of_Destiny's Spell Writing Code!
+This code requires a couple more python packages due to it having a GUI and all. 
 
-This is the tidier version of the code used in the [Spell Writing Guide](https://www.drivethrurpg.com/product/429711/The-Spell-Writing-Guide?manufacturers_id=22808) which aims to provide a simple method by which we can draw spells in D&D 5e. The system is general to any system and easy to modify, I will explain this later.
+# Mass's GUI for SpellWritingGuide
+
+This is a simple GUI version of the code used in the [Spell Writing Guide](https://www.drivethrurpg.com/product/429711/The-Spell-Writing-Guide?manufacturers_id=22808) which aims to provide a simple method by which we can draw spells in D&D 5e. 
 
 ## Setup
 
 You can clone the repo for use simply by typing:
 
-```git clone https://github.com/GorillaOfDestiny/SpellWritingGuide```
+```git clone https://github.com/massDelirium/SpellWritingGuide.git```
 
 When initially running the code a folder called "Uniques" with files such as "11.npy" being created within. These contain the rotationally unique binary numbers the method relies on. They will only be created when such a file does not already exist in a directory called "Uniques".
 
+This code automatically saves spells in the folder "Spells" and will overwrite images when saving if they don't have unique names!
 ### Dependencies
 
 Python vesion used in development: Python 3.10.4
@@ -21,22 +26,17 @@ The required python modules are:
   - math
   - os
   - tqdm
+  - tkinter
+  - PIL (Pillow)
  
 ## Running the file
 
-to run you type the command: ```py writer.py```
+to run you type the command: ```py MassGUI.py```
 
-for information about optional commands type: ```py writer.py --help```
-
-standard input for a spell is ```py writer.py -level <level> -range <range> -area <area> -dtype <dtype> -school <school>``` with <value> replaced by relevant lowercase strings. Defaults to make "Fireball".
-  
-To see the available inputs (and their format) type:  ```py writer.py --arg_help -<arg>...```
-  
-input options are defined by the .txt files in "Attributes/" so ```--arg_help``` simply prints the values in this file.
   
 ## Modifying
   
-You can add your own options to the inputs by adding them in a new line in the relevant .txt files in "Attributes/"
+Not Modifyable yet, but it works!
   
   
 
